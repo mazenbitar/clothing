@@ -10,5 +10,6 @@ class RegAct : AppCompatActivity() {
         setContentView(R.layout.activity_reg)
 
         //bellow i'll file the governorate spinner from the database
+        val url = "http://192.168.0.29/clothing/prl/governorates_select.php"
     }
 }
