@@ -24,14 +24,11 @@ class RegAct : AppCompatActivity() {
         val rq = Volley.newRequestQueue(this)
         //this hashmap to store the id and the name of the governorate from the DB
         val hashMapGovernorates = HashMap<Int, String>()
-        //here i set the first value of the hashmap to make appears as the first value in the
-        // dropdown list
-        hashMapGovernorates[0] = "اختر العاصمة"
         val rt = JsonArrayRequest(Request.Method.GET, url, null,
                 Response.Listener { response ->
                     for (index in 0 until response.length()) {
-                        hashMapGovernorates[response.getJSONObject(0)
-                                .getInt("governorate_id")] = response.getJSONObject(0)
+                        hashMapGovernorates[response.getJSONObject(index)
+                                .getInt("governorate_id")] = response.getJSONObject(index)
                                 .getString("governorate_name")
                     }
                     val array = hashMapGovernorates.values.toTypedArray()
