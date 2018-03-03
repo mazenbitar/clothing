@@ -81,7 +81,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
-
     <CheckBox
         android:id="@+id/checkBox3"
         android:layout_width="71dp"
@@ -142,7 +141,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="80dp"
@@ -154,6 +152,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@android:drawable/ic_input_add" />
-
 
 </android.support.constraint.ConstraintLayout>
