@@ -20,7 +20,7 @@ class RegAct : AppCompatActivity() {
         setContentView(R.layout.activity_reg)
 
         //bellow i'll file the governorate spinner from the database
-        /*val url = "http://192.168.0.29/clothing/prl/governorates_select.php"
+        val url = "http://192.168.0.29/clothing/prl/governorates_select.php"
         val rq = Volley.newRequestQueue(this)
         //this hashmap to store the id and the name of the governorate from the DB
         val hashMapGovernorates = HashMap<Int, String>()
@@ -42,14 +42,6 @@ class RegAct : AppCompatActivity() {
                 }, Response.ErrorListener { error ->
             Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
         })
-        rq.add(rt)*/
-
-        val spinnerArray = ArrayList<String>()
-        spinnerArray.add("item1")
-        spinnerArray.add("item2")
-        val adapter = ArrayAdapter(
-                this, android.R.layout.simple_spinner_item, spinnerArray)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_governorate.adapter = adapter
+        rq.add(rt)
     }
 }
