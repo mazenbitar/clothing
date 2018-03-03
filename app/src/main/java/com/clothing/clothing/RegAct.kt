@@ -8,5 +8,7 @@ class RegAct : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reg)
+
+        //bellow i'll file the governorate spinner from the database
     }
 }

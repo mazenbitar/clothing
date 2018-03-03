@@ -75,7 +75,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/spinner_complex"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
@@ -83,61 +83,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="71dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="364dp"
-        android:layoutDirection="rtl"
-        android:text="رجالي"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:targetApi="jelly_bean_mr1" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="90dp"
-        android:layout_marginRight="90dp"
-        android:layout_marginTop="364dp"
-        android:layoutDirection="rtl"
-        android:text="نسائي"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:targetApi="jelly_bean_mr1" />
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="69dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="170dp"
-        android:layout_marginRight="170dp"
-        android:layout_marginTop="364dp"
-        android:layoutDirection="rtl"
-        android:text="ولادي"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:targetApi="jelly_bean_mr1" />
-
-    <CheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:layoutDirection="rtl"
-        android:text="تذكرني"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3"
-        tools:ignore="MissingConstraints"
-        tools:targetApi="jelly_bean_mr1" />
 
     <Button
         android:id="@+id/button2"
@@ -162,5 +107,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <CheckBox
+        android:id="@+id/checkBox_men"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="8dp"
+        android:layoutDirection="rtl"
+        android:text="رجالي"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_complex"
+        tools:targetApi="jelly_bean_mr1" />
+
+    <CheckBox
+        android:id="@+id/checkBox_women"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layoutDirection="rtl"
+        android:text="ستاتي"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_men"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_complex"
+        tools:targetApi="jelly_bean_mr1" />
+
+    <CheckBox
+        android:id="@+id/checkBox_children"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layoutDirection="rtl"
+        android:text="ستاتي"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_women"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_complex"
+        tools:targetApi="jelly_bean_mr1" />
 
 </android.support.constraint.ConstraintLayout>
