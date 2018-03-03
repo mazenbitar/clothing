@@ -10,6 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="اضف صورة المحل"
@@ -24,6 +25,7 @@
         android:layout_marginEnd="76dp"
         android:layout_marginRight="76dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="TODO"
         app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -85,13 +87,15 @@
         android:id="@+id/checkBox3"
         android:layout_width="71dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="364dp"
         android:layoutDirection="rtl"
         android:text="رجالي"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:targetApi="jelly_bean_mr1" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -104,31 +108,36 @@
         android:text="نسائي"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:targetApi="jelly_bean_mr1" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="69dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="170dp"
         android:layout_marginRight="170dp"
         android:layout_marginTop="364dp"
         android:layoutDirection="rtl"
         android:text="ولادي"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:targetApi="jelly_bean_mr1" />
 
     <CheckBox
         android:id="@+id/checkBox7"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:layoutDirection="rtl"
         android:text="تذكرني"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox3"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:targetApi="jelly_bean_mr1" />
 
     <Button
         android:id="@+id/button2"
@@ -149,6 +158,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginTop="12dp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@android:drawable/ic_input_add" />
