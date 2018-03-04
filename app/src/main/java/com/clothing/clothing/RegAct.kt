@@ -52,11 +52,11 @@ class RegAct : AppCompatActivity() {
                                 .getInt("area_id")] = response.getJSONObject(index)
                                 .getString("area_name")
                     }
-                    val array = hashMapGovernorates.values.toTypedArray()
+                    val array = hashMapAreas.values.toTypedArray()
                     val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item,
                             array)
                     adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-                    spinner_governorate.adapter = adapter
+                    spinner_area.adapter = adapter
                 }, Response.ErrorListener { error ->
             Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
         })
