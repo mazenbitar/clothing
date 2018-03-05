@@ -21,7 +21,7 @@ class RegAct : AppCompatActivity() {
 
         //bellow i'll file the governorate spinner from the database
         var url = "http://192.168.0.29/clothing/prl/governorates_select.php"
-        var rq = Volley.newRequestQueue(this)
+        val rq = Volley.newRequestQueue(this)
         //this hashmap to store the id and the name of the governorate from the DB
         val hashMapGovernorates = HashMap<Int, String>()
         var rt = JsonArrayRequest(Request.Method.GET, url, null,
