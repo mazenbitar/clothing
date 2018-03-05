@@ -3,6 +3,8 @@ package com.clothing.clothing
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.android.volley.Request
@@ -11,6 +13,8 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_test.*
 import java.util.*
+import com.clothing.clothing.R.id.spinner
+
 
 class TestActivity : AppCompatActivity() {
 
@@ -44,5 +48,16 @@ class TestActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG).show()
         })
         rq.add(rt)
+
+        spinner3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                Toast.makeText(this@TestActivity, position.toString(), Toast.LENGTH_SHORT)
+                        .show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // sometimes you need nothing here
+            }
+        }
     }
 }
