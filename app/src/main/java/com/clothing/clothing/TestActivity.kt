@@ -1,18 +1,15 @@
 package com.clothing.clothing
 
 import android.annotation.SuppressLint
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_items.*
-import kotlinx.android.synthetic.main.activity_reg.*
 import kotlinx.android.synthetic.main.activity_test.*
-import org.json.JSONObject
 import java.util.*
 
 class TestActivity : AppCompatActivity() {
