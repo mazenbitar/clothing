@@ -20,7 +20,9 @@ class RegAct : AppCompatActivity() {
         setContentView(R.layout.activity_reg)
 
         //bellow i'll file the governorate spinner from the database
-        var url = "http://192.168.0.29/clothing/prl/governorates_select.php"
+        //work ip: 10.152.204.117
+        //home ip: 192.168.0.29
+        var url = "http://10.152.204.117/clothing/prl/governorates_select.php"
         val rq = Volley.newRequestQueue(this)
         //this hashmap to store the id and the name of the governorate from the DB
         val hashMapGovernorates = HashMap<Int, String>()
