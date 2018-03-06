@@ -74,6 +74,8 @@ class RegAct : AppCompatActivity() {
         spinner_governorate.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int,
                                         id: Long) {
+                //bellow i'll show the areas on the areas spinner when there is governorate
+                // selected, but if no governorate selected nothing will be shown
                 if (position != 0) {
                     //bellow i'll clear the areas hashmap to fill it again with the new areas
                     // deepened on the governorate selected
@@ -102,6 +104,16 @@ class RegAct : AppCompatActivity() {
                         Toast.makeText(this@RegAct, error.message, Toast.LENGTH_LONG).show()
                     })
                     rq.add(rt)
+                } else {
+                    //bellow i'll show nothing on the areas spinner, because nothing been chosen
+                    hashMapAreas.clear()
+                    //here i set the first value to appear in the spinner
+                    hashMapAreas[0] = "المنطقة"
+                    array = hashMapAreas.values.toTypedArray()
+                    adapter = ArrayAdapter(this@RegAct, android.R.layout.simple_spinner_item,
+                            array)
+                    adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+                    spinner_area.adapter = adapter
                 }
             }
 
