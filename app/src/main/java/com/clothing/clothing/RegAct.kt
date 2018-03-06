@@ -26,7 +26,7 @@ class RegAct : AppCompatActivity() {
         val hashMapGovernorate = HashMap<Int, String>()
         //here i set the first value to appear in the spinner
         hashMapGovernorate[0] = "العاصمة"
-        var url = "http://10.152.204.117/clothing/prl/governorates_select.php"
+        var url = "http://192.168.0.29/clothing/prl/governorates_select.php"
         val rq = Volley.newRequestQueue(this)
         var rt = JsonArrayRequest(Request.Method.GET, url, null,
                 Response.Listener { response ->
@@ -60,7 +60,7 @@ class RegAct : AppCompatActivity() {
                 if (position != 0) {
                     //the bellow code related to fill the areas spinner from the database based on the
                     // governorate selected form the governorate spinner
-                    val url1 = "http://10.152.204.117/clothing/prl/areas_select.php?" +
+                    val url1 = "http://192.168.0.29/clothing/prl/areas_select.php?" +
                             "governorate_id=${hashMapGovernorate.keys.toTypedArray()
                                     .sortedArray()[position]}"
                     val rq1 = Volley.newRequestQueue(this@RegAct)

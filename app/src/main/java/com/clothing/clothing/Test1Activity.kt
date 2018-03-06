@@ -11,7 +11,6 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_reg.*
 import kotlinx.android.synthetic.main.activity_test1.*
 import java.util.*
 
@@ -26,7 +25,13 @@ class Test1Activity : AppCompatActivity() {
         val hashMapGovernorate = HashMap<Int, String>()
         //here i set the first value to appear in the spinner
         hashMapGovernorate[0] = "العاصمة"
-        var url = "http://10.152.204.117/clothing/prl/governorates_select.php"
+        val map = TreeMap(hashMapGovernorate)
+        val array = map.values.toTypedArray()
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item,
+                array)
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+        spinner4.adapter = adapter
+        var url = "http://192.168.0.29/clothing/prl/governorates_select.php"
         val rq = Volley.newRequestQueue(this)
         var rt = JsonArrayRequest(Request.Method.GET, url, null,
                 Response.Listener { response ->
@@ -67,7 +72,7 @@ class Test1Activity : AppCompatActivity() {
 
                 if (hashMapGovernorate.keys.toTypedArray().sortedArray()[position] != 0) {
                     hashMapAreas.clear()
-                    val url5 = "http://10.152.204.117/clothing/prl/areas_select.php?" +
+                    val url5 = "http://192.168.0.29/clothing/prl/areas_select.php?" +
                             "governorate_id=${hashMapGovernorate.keys.toTypedArray()
                                     .sortedArray()[position]}"
                     val rq5 = Volley.newRequestQueue(this@Test1Activity)
