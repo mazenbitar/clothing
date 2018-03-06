@@ -36,8 +36,8 @@ class TestActivity : AppCompatActivity() {
                                 response.getJSONObject(i).getString("governorate_name")
                     }
                     //here i sort the hashmap by keys ascending
-                    val sortedMap = TreeMap(hashMapTest)
-                    val array = sortedMap.values.toTypedArray()
+                    val map = TreeMap(hashMapTest)
+                    val array = map.values.toTypedArray().sortedArray()
                     val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item,
                             array)
                     adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
@@ -60,6 +60,5 @@ class TestActivity : AppCompatActivity() {
                 // sometimes you need nothing here
             }
         }
-
     }
 }
