@@ -16,13 +16,15 @@
         <activity android:name=".RegAct"></activity>
         <activity android:name=".StoreAct" />
         <activity android:name=".TestActivity">
+
+        </activity>
+        <activity android:name=".Test1Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Test1Activity"></activity>
     </application>
 
 </manifest>

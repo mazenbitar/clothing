@@ -52,7 +52,7 @@ class TestActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int,
                                         id: Long) {
                 Toast.makeText(this@TestActivity,
-                        hashMapTest.keys.toTypedArray()[position].toString(),
+                        hashMapTest.keys.toTypedArray().toString(),
                         Toast.LENGTH_SHORT).show()
             }
 
