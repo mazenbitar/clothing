@@ -13,8 +13,6 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_test.*
 import java.util.*
-import com.clothing.clothing.R.id.spinner
-import android.R.attr.keySet
 
 
 class TestActivity : AppCompatActivity() {
