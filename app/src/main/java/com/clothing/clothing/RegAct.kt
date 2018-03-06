@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_reg.*
 import java.util.*
 
 
+@Suppress("NAME_SHADOWING")
 class RegAct : AppCompatActivity() {
 
     @SuppressLint("UseSparseArrays")
@@ -25,10 +26,18 @@ class RegAct : AppCompatActivity() {
         //the bellow code related to fill governorates spinner from the database
         val hashMapGovernorate = HashMap<Int, String>()
         //here i set the first value to appear in the spinner
-        hashMapGovernorate[0] = "العاصمة"
-        var url = "http://192.168.0.29/clothing/prl/governorates_select.php"
+        hashMapGovernorate[0] = "المحافظة"
+        //the 4 lines bellow to fill the spinner withe the word "العاصمة" when there is no internet
+        // connection
+        val array = hashMapGovernorate.values.toTypedArray()
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item,
+                array)
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+        spinner_governorate.adapter = adapter
+
+        val url = "http://192.168.0.29/clothing/prl/governorates_select.php"
         val rq = Volley.newRequestQueue(this)
-        var rt = JsonArrayRequest(Request.Method.GET, url, null,
+        val rt = JsonArrayRequest(Request.Method.GET, url, null,
                 Response.Listener { response ->
                     for (i in 0 until response.length()) {
                         hashMapGovernorate[response.getJSONObject(i)
