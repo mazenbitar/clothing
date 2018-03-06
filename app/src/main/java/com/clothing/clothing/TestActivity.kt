@@ -2,20 +2,11 @@ package com.clothing.clothing
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_test.*
-import java.util.*
-
 
 class TestActivity : AppCompatActivity() {
 
@@ -33,6 +24,6 @@ class TestActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-
+        if (requestCode == 1) imageView7.setImageBitmap(data?.extras?.get("data") as Bitmap?)
     }
 }
