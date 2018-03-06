@@ -24,6 +24,8 @@ class TestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test)
 
         val hashMapTest = HashMap<Int, String>()
+        //here i set the first value to appear in the spinner
+        hashMapTest[0] = "العاصمة"
         val url = "http://10.152.204.117/clothing/prl/governorates_select.php"
         val rq = Volley.newRequestQueue(this)
         val rt = JsonArrayRequest(Request.Method.GET, url, null,
@@ -32,10 +34,6 @@ class TestActivity : AppCompatActivity() {
                         hashMapTest[response.getJSONObject(i).getInt("governorate_id")] =
                                 response.getJSONObject(i).getString("governorate_name")
                     }
-
-                    //here i set the first value to appear in the spinner
-                    hashMapTest[0] = "العاصمة"
-
                     //here i sort the hashmap by keys ascending
                     val sortedMap = TreeMap(hashMapTest)
                     val array = sortedMap.values.toTypedArray()
