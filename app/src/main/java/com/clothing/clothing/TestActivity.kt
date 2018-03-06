@@ -37,7 +37,7 @@ class TestActivity : AppCompatActivity() {
                     }
                     //here i sort the hashmap by keys ascending
                     val map = TreeMap(hashMapTest)
-                    val array = map.values.toTypedArray().sortedArray()
+                    val array = map.values.toTypedArray()
                     val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item,
                             array)
                     adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
@@ -52,7 +52,7 @@ class TestActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int,
                                         id: Long) {
                 Toast.makeText(this@TestActivity,
-                        hashMapTest.keys.toTypedArray().toString(),
+                        hashMapTest.keys.toTypedArray().sortedArray()[position].toString(),
                         Toast.LENGTH_SHORT).show()
             }
 
