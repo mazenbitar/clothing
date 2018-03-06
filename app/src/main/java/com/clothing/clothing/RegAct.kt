@@ -34,7 +34,7 @@ class RegAct : AppCompatActivity() {
                 array)
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
         spinner_governorate.adapter = adapter
-
+        //bellow i'll fill the spinner with data when there is internet connection
         val url = "http://192.168.0.29/clothing/prl/governorates_select.php"
         val rq = Volley.newRequestQueue(this)
         val rt = JsonArrayRequest(Request.Method.GET, url, null,
@@ -65,7 +65,6 @@ class RegAct : AppCompatActivity() {
         spinner_governorate.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int,
                                         id: Long) {
-
                 if (position != 0) {
                     //the bellow code related to fill the areas spinner from the database based on the
                     // governorate selected form the governorate spinner
