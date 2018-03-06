@@ -27,17 +27,17 @@ class RegAct : AppCompatActivity() {
         val hashMapGovernorate = HashMap<Int, String>()
         //here i set the first value to appear in the spinner
         hashMapGovernorate[0] = "المحافظة"
-        //the 4 lines bellow to fill the spinner withe the word "العاصمة" when there is no internet
+        //the 4 lines bellow to fill the spinner with the word "العاصمة" when there is no internet
         // connection
-        val array = hashMapGovernorate.values.toTypedArray()
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item,
+        var array = hashMapGovernorate.values.toTypedArray()
+        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item,
                 array)
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
         spinner_governorate.adapter = adapter
         //bellow i'll fill the spinner with data when there is internet connection
-        val url = "http://192.168.0.29/clothing/prl/governorates_select.php"
-        val rq = Volley.newRequestQueue(this)
-        val rt = JsonArrayRequest(Request.Method.GET, url, null,
+        var url = "http://192.168.0.29/clothing/prl/governorates_select.php"
+        var rq = Volley.newRequestQueue(this)
+        var rt = JsonArrayRequest(Request.Method.GET, url, null,
                 Response.Listener { response ->
                     for (i in 0 until response.length()) {
                         hashMapGovernorate[response.getJSONObject(i)
@@ -61,18 +61,30 @@ class RegAct : AppCompatActivity() {
         val hashMapAreas = HashMap<Int, String>()
         //here i set the first value to appear in the spinner
         hashMapAreas[0] = "المنطقة"
+        //the 4 lines bellow to fill the spinner with the word "المنطقة" when there is no internet
+        // connection
+        array = hashMapAreas.values.toTypedArray()
+        adapter = ArrayAdapter(this@RegAct,
+                android.R.layout.simple_spinner_item, array)
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+        spinner_area.adapter = adapter
 
+        //bellow i filter the areas in the areas spinner depened on the selected governorate form
+        // the governorates spinner
         spinner_governorate.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int,
                                         id: Long) {
                 if (position != 0) {
+                    //bellow i'll clear the areas hashmap to fill it again with the new areas
+                    // deepened on the governorate selected
+                    hashMapAreas.clear()
                     //the bellow code related to fill the areas spinner from the database based on the
                     // governorate selected form the governorate spinner
-                    val url1 = "http://192.168.0.29/clothing/prl/areas_select.php?" +
+                    url = "http://192.168.0.29/clothing/prl/areas_select.php?" +
                             "governorate_id=${hashMapGovernorate.keys.toTypedArray()
                                     .sortedArray()[position]}"
-                    val rq1 = Volley.newRequestQueue(this@RegAct)
-                    val rt1 = JsonArrayRequest(Request.Method.GET, url1, null,
+                    rq = Volley.newRequestQueue(this@RegAct)
+                    rt = JsonArrayRequest(Request.Method.GET, url, null,
                             Response.Listener { response ->
                                 for (i in 0 until response.length()) {
                                     hashMapAreas[response.getJSONObject(i)
@@ -81,15 +93,15 @@ class RegAct : AppCompatActivity() {
                                 }
                                 //here i sort the hashmap by keys ascending
                                 val map = TreeMap(hashMapAreas)
-                                val array = map.values.toTypedArray()
-                                val adapter = ArrayAdapter(this@RegAct,
+                                array = map.values.toTypedArray()
+                                adapter = ArrayAdapter(this@RegAct,
                                         android.R.layout.simple_spinner_item, array)
                                 adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
                                 spinner_area.adapter = adapter
                             }, Response.ErrorListener { error ->
                         Toast.makeText(this@RegAct, error.message, Toast.LENGTH_LONG).show()
                     })
-                    rq1.add(rt1)
+                    rq.add(rt)
                 }
             }
 
