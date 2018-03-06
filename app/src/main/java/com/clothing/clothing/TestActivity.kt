@@ -14,6 +14,7 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_test.*
 import java.util.*
 import com.clothing.clothing.R.id.spinner
+import android.R.attr.keySet
 
 
 class TestActivity : AppCompatActivity() {
@@ -48,14 +49,17 @@ class TestActivity : AppCompatActivity() {
         rq.add(rt)
 
         spinner3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                Toast.makeText(this@TestActivity, position.toString(), Toast.LENGTH_SHORT)
-                        .show()
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int,
+                                        id: Long) {
+                Toast.makeText(this@TestActivity,
+                        hashMapTest.keys.toTypedArray()[position].toString(),
+                        Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // sometimes you need nothing here
             }
         }
+
     }
 }
