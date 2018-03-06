@@ -1,5 +1,6 @@
 package com.clothing.clothing
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -11,14 +12,12 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_reg.*
-import android.widget.Spinner
-import kotlinx.android.synthetic.main.activity_items.*
-import kotlinx.android.synthetic.main.activity_test.*
 import java.util.*
 
 
 class RegAct : AppCompatActivity() {
 
+    @SuppressLint("UseSparseArrays")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reg)
