@@ -22,6 +22,7 @@ class RegAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reg)
 
+        //the bellow code related to the governorates spinner
         val hashMapGovernorate = HashMap<Int, String>()
         //here i set the first value to appear in the spinner
         hashMapGovernorate[0] = "العاصمة"
