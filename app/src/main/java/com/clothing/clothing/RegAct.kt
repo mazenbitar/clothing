@@ -1,7 +1,9 @@
 package com.clothing.clothing
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.AdapterView
@@ -22,6 +24,13 @@ class RegAct : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reg)
+
+        //bellow is the code to capture image using the camera after pressing on the floating button
+        floatingActionButton.setOnClickListener {
+            val pickPictureIntent = Intent(Intent.ACTION_PICK,
+                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(pickPictureIntent, 1)
+        }
 
         //the bellow code related to fill governorates spinner from the database
         val hashMapGovernorate = HashMap<Int, String>()
