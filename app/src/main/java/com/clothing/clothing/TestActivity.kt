@@ -16,14 +16,19 @@ class TestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test)
 
         floatingActionButton.setOnClickListener {
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            /*val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, 1)*/
+
+            intent = Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(intent, 1)
+
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == 1) imageView7.setImageBitmap(data?.extras?.get("data") as Bitmap?)
+        if (requestCode == 1) imageView7.setImageURI(data?.data)
     }
 }
