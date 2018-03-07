@@ -2,6 +2,7 @@ package com.clothing.clothing
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
@@ -14,6 +15,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_reg.*
+import kotlinx.android.synthetic.main.activity_test.*
 import java.util.*
 
 
@@ -27,8 +29,7 @@ class RegAct : AppCompatActivity() {
 
         //bellow is the code to capture image using the camera after pressing on the floating button
         floatingActionButton.setOnClickListener {
-            val pickPictureIntent = Intent(Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            val pickPictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(pickPictureIntent, 1)
         }
 
@@ -78,7 +79,7 @@ class RegAct : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
         spinner_area.adapter = adapter
 
-        //bellow i filter the areas in the areas spinner depened on the selected governorate form
+        //bellow i filter the areas in the areas spinner depend on the selected governorate form
         // the governorates spinner
         spinner_governorate.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int,
@@ -129,6 +130,15 @@ class RegAct : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // sometimes you need nothing here
             }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1) {
+            //here i set the imageView image from the camera capture image
+            imageViewStore.setImageBitmap(data?.extras.get("data") as Bitmap)
         }
     }
 }
