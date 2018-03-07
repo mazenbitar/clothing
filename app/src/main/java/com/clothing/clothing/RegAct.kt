@@ -15,9 +15,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_reg.*
-import kotlinx.android.synthetic.main.activity_test.*
 import java.util.*
-
 
 @Suppress("NAME_SHADOWING")
 class RegAct : AppCompatActivity() {
