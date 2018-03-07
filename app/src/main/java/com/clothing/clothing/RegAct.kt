@@ -135,7 +135,7 @@ class RegAct : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 1) {
-            //here i set the imageView image from the camera capture image
+            //here i set the imageView image from the camera capture
             imageViewStore.setImageBitmap(data?.extras?.get("data") as Bitmap)
         }
     }
