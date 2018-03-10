@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.webkit.MimeTypeMap
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -15,6 +16,8 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_reg.*
 import java.util.*
 
@@ -22,7 +25,7 @@ import java.util.*
 class RegAct : AppCompatActivity() {
 
     //declare variable to store image uri, to store profile image in firebase
-    var pathUri: Uri? = null
+    private var pathUri: Uri? = null
 
     @SuppressLint("UseSparseArrays")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +34,9 @@ class RegAct : AppCompatActivity() {
 
         //bellow is the code to capture image using the camera after pressing on the floating button
         floatingActionButton.setOnClickListener {
-            val pickPictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(pickPictureIntent, 1)
+            val intent = Intent(Intent.ACTION_GET_CONTENT,
+                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, 1)
         }
 
         //the bellow code related to fill governorates spinner from the database
@@ -136,7 +140,27 @@ class RegAct : AppCompatActivity() {
         }
 
         button_register.setOnClickListener {
+            //this function to upload profile image to firebase
+            uploadProfileImage()
 
+
+        }
+    }
+
+    //this function when triggered, profile image will be uploaded to firebase
+    private fun uploadProfileImage() {
+        val databaseReference: DatabaseReference? = null
+        val contentResolver = contentResolver
+
+        val fileExtension = MimeTypeMap.getSingleton().getExtensionFromMimeType(contentResolver
+                .getType(pathUri))
+        val storageReference = FirebaseStorage.getInstance().reference.child("Profileimgs/" +
+                System.currentTimeMillis().toString() + "." + fileExtension)
+
+        storageReference.putFile(this.pathUri!!).addOnSuccessListener { taskSnapshot ->
+            databaseReference?.child(databaseReference.push().key)?.setValue(
+                    "image", taskSnapshot.downloadUrl.toString()
+            )
         }
     }
 
@@ -145,10 +169,11 @@ class RegAct : AppCompatActivity() {
 
         if (requestCode == 1) {
             //here i set the imageView image from the camera capture
-            imageViewStore.setImageBitmap(data?.extras?.get("data") as Bitmap)
+            imageViewStore.setImageBitmap(MediaStore.Images.Media
+                    .getBitmap(this.contentResolver, data?.data))
 
             //here i store the image uri
-            pathUri = data.data
+            pathUri = data?.data
         }
     }
 }
