@@ -106,7 +106,8 @@ class RegAct : AppCompatActivity() {
                                 array = map.values.toTypedArray()
                                 adapter = ArrayAdapter(this@RegAct,
                                         android.R.layout.simple_spinner_item, array)
-                                adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+                                adapter.setDropDownViewResource(android.R.layout
+                                        .simple_dropdown_item_1line)
                                 spinner_area.adapter = adapter
                             }, Response.ErrorListener { error ->
                         Toast.makeText(this@RegAct, error.message, Toast.LENGTH_LONG).show()
