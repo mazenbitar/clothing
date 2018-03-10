@@ -3,6 +3,7 @@ package com.clothing.clothing
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
@@ -19,6 +20,9 @@ import java.util.*
 
 @Suppress("NAME_SHADOWING")
 class RegAct : AppCompatActivity() {
+
+    //declare variable to store image uri, to store profile image in firebase
+    var pathUri: Uri? = null
 
     @SuppressLint("UseSparseArrays")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -130,6 +134,8 @@ class RegAct : AppCompatActivity() {
                 // sometimes you need nothing here
             }
         }
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -138,6 +144,9 @@ class RegAct : AppCompatActivity() {
         if (requestCode == 1) {
             //here i set the imageView image from the camera capture
             imageViewStore.setImageBitmap(data?.extras?.get("data") as Bitmap)
+
+            //here i store the image uri
+            pathUri = data.data
         }
     }
 }

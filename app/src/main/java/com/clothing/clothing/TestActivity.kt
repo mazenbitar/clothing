@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity
 import android.webkit.MimeTypeMap
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_test.*
 
 class TestActivity : AppCompatActivity() {
