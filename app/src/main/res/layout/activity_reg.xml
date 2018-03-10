@@ -136,7 +136,7 @@
         tools:targetApi="jelly_bean_mr1" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_register"
         android:layout_width="161dp"
         android:layout_height="36dp"
         android:layout_marginBottom="16dp"

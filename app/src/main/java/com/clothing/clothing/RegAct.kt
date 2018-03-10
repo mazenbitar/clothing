@@ -135,7 +135,9 @@ class RegAct : AppCompatActivity() {
             }
         }
 
+        button_register.setOnClickListener {
 
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
