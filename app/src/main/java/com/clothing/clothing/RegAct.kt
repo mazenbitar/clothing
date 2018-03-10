@@ -43,7 +43,7 @@ class RegAct : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
         spinner_governorate.adapter = adapter
         //bellow i'll fill the spinner with data when there is internet connection
-        var url = "http://192.168.0.29/clothing/prl/governorates_select.php"
+        var url = "http://169.254.129.65/clothing/prl/governorates_select.php"
         var rq = Volley.newRequestQueue(this)
         var rt = JsonArrayRequest(Request.Method.GET, url, null,
                 Response.Listener { response ->
@@ -88,9 +88,9 @@ class RegAct : AppCompatActivity() {
                     //bellow i'll clear the areas hashmap to fill it again with the new areas
                     // deepened on the governorate selected
                     hashMapAreas.clear()
-                    //the bellow code related to fill the areas spinner from the database based on the
-                    // governorate selected form the governorate spinner
-                    url = "http://192.168.0.29/clothing/prl/areas_select.php?" +
+                    //the bellow code related to fill the areas spinner from the database based on
+                    // the governorate selected form the governorate spinner
+                    url = "http://169.254.129.65/clothing/prl/areas_select.php?" +
                             "governorate_id=${hashMapGovernorate.keys.toTypedArray()
                                     .sortedArray()[position]}"
                     rq = Volley.newRequestQueue(this@RegAct)
