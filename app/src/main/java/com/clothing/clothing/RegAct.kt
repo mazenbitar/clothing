@@ -142,8 +142,6 @@ class RegAct : AppCompatActivity() {
         button_register.setOnClickListener {
             //this function to upload profile image to firebase
             uploadProfileImage()
-
-
         }
     }
 
