@@ -109,8 +109,8 @@ class RegAct : AppCompatActivity() {
                                             .getInt("area_id")] = response.getJSONObject(i)
                                             .getString("area_name")
                                 }
-                                //here i sort the hashmap by keys ascending
-                                val map = TreeMap(hashMapAreas)
+
+                                val map = TreeMap(hashMapAreas)//here i sort the hashmap by keys ascending
                                 array = map.values.toTypedArray()
                                 adapter = ArrayAdapter(this@RegAct,
                                         android.R.layout.simple_spinner_item, array)

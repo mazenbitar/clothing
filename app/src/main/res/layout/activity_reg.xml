@@ -96,6 +96,18 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="161dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginRight="124dp"
+        android:text="تسجيل"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <CheckBox
         android:id="@+id/checkBox_men"
         android:layout_width="wrap_content"
@@ -134,15 +146,5 @@
         app:layout_constraintEnd_toStartOf="@+id/checkBox_women"
         app:layout_constraintTop_toBottomOf="@+id/spinner_complex"
         tools:targetApi="jelly_bean_mr1" />
-
-    <Button
-        android:id="@+id/button_register"
-        android:layout_width="161dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="16dp"
-        android:text="تسجيل"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

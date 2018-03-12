@@ -144,8 +144,6 @@ class TestActivity : AppCompatActivity() {
             val k = Intent(this, Test1Activity::class.java)
             startActivity(k)
         }
-
-
     }
 
 
