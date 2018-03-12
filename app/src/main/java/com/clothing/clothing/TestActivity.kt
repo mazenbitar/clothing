@@ -21,37 +21,15 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-        floatingActionButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_GET_CONTENT,
-                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, 1)
+        button_register.setOnClickListener {
+            var edit = editText.text
+
+            val k = Intent(this, Test1Activity::class.java)
+            startActivity(k)
         }
 
-        button4.setOnClickListener {
-            val databaseReference: DatabaseReference? = null
-            val contentResolver = contentResolver
 
-            val fileExtension = MimeTypeMap.getSingleton().getExtensionFromMimeType(contentResolver
-                    .getType(pathUri))
-            val storageReference = FirebaseStorage.getInstance().reference.child("Profileimgs/" +
-                    System.currentTimeMillis().toString() + "." + fileExtension)
-
-            storageReference.putFile(this.pathUri!!).addOnSuccessListener { taskSnapshot ->
-                databaseReference?.child(databaseReference.push().key)?.setValue(
-                        "image", taskSnapshot.downloadUrl.toString()
-                )
-            }
-        }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 1) {
-            //here i store the image uri
-            pathUri = data?.data
 
-            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data?.data)
-            imageView7.setImageBitmap(bitmap)
-        }
-    }
 }
